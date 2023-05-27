@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{% block title%}Faculties{%endblock%}
+{% block content%}
+      <section id="faculty">
+        <div class="container">
+          <h6 class="faculty-text">Welcome to e-library! Here, you will find a comprehensive list of the available faculties within our educational institution. Each faculty represents a unique field of study, offering a wide range of courses and programs designed to empower students with the knowledge and skills necessary for their academic and professional success.</h6>
+          <ul class="listings-container">
+
+            {%for faculty in faculties%}
+            <li class="listing">
+              <a href="" class="listing-link">
+                <span class="listing-image">
+                  <img class="list-image" src="https://bio.libretexts.org/@api/deki/files/7010/mindtouch.page%2523thumbnail?revision=3" alt="">
+                </span>
+                <span class="listing-name">{{faculty.faculty_name}}</span>
+              </a>
+            </li>
+            {%endfor%}
+
+          </ul>
+        </div>
+      </section>
+
+      {%endblock%}

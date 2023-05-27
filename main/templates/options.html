@@ -1,0 +1,199 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%} Options {%endblock%}
+{%block content%}
+
+
+      <div class="container">
+        <h3 class="option-heading">Search for Past Questions</h3>
+        <div class="row">
+            <div class="col-lg-6">
+                <form method="post" style="margin-bottom: 2rem;">
+                    <div class="form-div">
+                        <label for="department" class="form-label">Select Department</label>
+                        <select class="form-select" name="department" id="department">
+                        <option class="form-option" value="">Select the Department</option>
+            
+                    </select>
+                    </div>
+                    
+                    <div class="form-div">
+                        <label for="session" class="form-label">Select Session</label><br>
+                        <select class="form-select" name="session" id="session">
+                        <option class="form-option" value="">Select the Session</option>
+                    </select>
+                    </div>
+
+                    <div class="form-div">
+                        <label for="level" class="form-label">Select Level</label><br>
+                        <select class="form-select" name="level" id="level">
+                        <option class="form-option" value="">Select the Level</option>
+                    </select>
+                    </div>
+                    
+                    <div class="form-div">
+                        <label for="semester" class="form-label">Select the Semester</label><br>
+                    <select class="form-select" name="semester" id="semester">
+                        <option class="form-option" value="">Select the Semester</option>
+                    </select>
+                    </div>
+        
+                    
+                    <div class="form-div">
+                        <label for="course" class="form-label">Select Course Code</label><br>
+                        <select class="form-select" name="course" id="course">
+                        <option class="form-option" value="">Select the Course Code</option>
+                    </select>
+                    </div>
+                    <button class="btn btn-outline-primary" type="button" name="submit">Submit</button>
+                    
+                </form>
+            </div>
+
+            <div class="col-lg-6">
+                <h4 class="download-text">Click the button below to download</h4>
+                <a href="images/94540733998.png" download>
+                <button class="btn btn-outline-primary " style="margin-left: 15rem;" type="button" name="submit">Download</button>
+                </a>
+            </div>
+        </div>
+        
+      </div>
+      
+      <script>
+        var data = JSON.parse("{{json_query|escapejs}}");
+        for (var department in data){
+            $("#department").append(`<option class='form-option option' value='${department}'>${department}</option>`)
+        }
+
+        // Sessions Select Option
+        $("#department").on("change", function (){
+            var department_selected = $("#department").val()
+            $(".form-option.session-option").remove()
+            if (department_selected !== ""){
+                for (let index = 0; index < data[department_selected].length; index++) {
+                var sessions = data[department_selected][index]
+                for (var session in sessions){
+                    $("#session").append(`<option class='form-option session-option' value='${session}'>${session}</option>`)
+           } 
+            }
+            }
+            
+            
+            
+             
+           
+        })
+
+        // Levels Select Option
+
+        $("#session").on("change", function (){
+            var department_selected = $("#department").val()
+            var session_selected = $("#session").val()
+            
+            var session_index;
+            $(".form-option.level-option").remove()
+            for (let index = 0; index < data[department_selected].length; index++) {
+                if (data[department_selected][index].hasOwnProperty(session_selected)){
+                    session_index = index
+                }
+                
+            }
+            if (session_selected !== ""){
+                for (let index = 0; index < data[department_selected][session_index][session_selected].length; index++) {
+                var levels =data[department_selected][session_index][session_selected][index]
+                for (var level in levels ){
+                    $("#level").append(`<option class='form-option level-option' value='${level}'>${level}</option>`)
+           } 
+            } 
+            }
+            
+            })
+
+            // Semester Select Option
+
+            $("#level").on("change", function (){
+            var department_selected = $("#department").val()
+            var session_selected = $("#session").val()
+            var level_selected = $("#level").val()
+            var session_index, level_index;
+
+            $(".form-option.semester-option").remove()
+            
+            for (let index = 0; index < data[department_selected].length; index++) {
+                if (data[department_selected][index].hasOwnProperty(session_selected)){
+                    session_index = index
+                }
+                
+            }
+
+            for (let index = 0; index < data[department_selected][session_index][session_selected].length; index++) {
+                if (data[department_selected][session_index][session_selected][index].hasOwnProperty(level_selected)){
+                    level_index = index
+                }
+                
+                
+            }
+
+            if (level_selected !== ""){
+                for (let index = 0; index < data[department_selected][session_index][session_selected][level_index][level_selected].length; index++) {
+                var semesters =data[department_selected][session_index][session_selected][level_index][level_selected][index]
+                for (var semester in semesters ){
+                    $("#semester").append(`<option class='form-option semester-option' value='${semester}'>${semester}</option>`)
+           } 
+            } 
+            }
+            
+            })
+
+
+            // Course Select Option
+
+            $("#level").on("change", function (){
+            var department_selected = $("#department").val()
+            var session_selected = $("#session").val()
+            var level_selected = $("#level").val()
+            var semester_selected = $("#semeste").val()
+            var session_index, level_index, semester_index;
+
+            $(".form-option.course-option").remove()
+            
+            for (let index = 0; index < data[department_selected].length; index++) {
+                if (data[department_selected][index].hasOwnProperty(session_selected)){
+                    session_index = index
+                }
+                
+            }
+
+            for (let index = 0; index < data[department_selected][session_index][session_selected].length; index++) {
+                if (data[department_selected][session_index][session_selected][index].hasOwnProperty(level_selected)){
+                    level_index = index
+                }
+                
+            }
+
+
+            for (let index = 0; index < data[department_selected][session_index][session_selected][level_index][level_selected].length; index++) {
+                if (data[department_selected][session_index][session_selected][level_index][level_selected][index].hasOwnProperty(semester_selected)){
+                    semester_index = index
+                }
+                
+            }
+            if (semester_selected !== ""){
+                console.log(data[department_selected][session_index][session_selected][level_index][level_selected][semester_index][semester_selected])
+                for (let index = 0; index < data[department_selected][session_index][session_selected][level_index][level_selected][semester_index][semester_selected].length; index++) {
+                var courses =data[department_selected][session_index][session_selected][level_index][level_selected][semester_index][semester_selected][index]
+                for (var course in courses ){
+                    $("#course").append(`<option class='form-option course-option' value='${course}'>${course}</option>`)
+           } 
+            } 
+            }else{
+            }
+            
+            })
+        
+        
+        // <option class="form-option" value="Computer Science">Computer Science</option>
+
+      </script>
+{%endblock%}

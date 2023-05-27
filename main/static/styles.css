@@ -72,20 +72,23 @@
     color: var(--accent-color);
 }
 
-.btn{
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.btn:hover{
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-.btn:active{
-    color: var(--general-font);
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
+.btn {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #4CAF50;
+    font-size: 21px;
+    background: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border: solid #4CAF50 1px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: #4CAF50;
+    text-decoration: none;
+  }
 
 /* Features Section */
 #features{
