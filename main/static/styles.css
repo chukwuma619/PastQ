@@ -72,23 +72,33 @@
     color: var(--accent-color);
 }
 
-.btn {
+.bttn {
     -webkit-border-radius: 15;
     -moz-border-radius: 15;
-    border-radius: 15px;
-    font-family: Arial;
+    border-radius: 12px;
+    font-family: var(--primary-font);
     color: #4CAF50;
     font-size: 21px;
     background: #ffffff;
-    padding: 10px 20px 10px 20px;
+    padding: 12px 18px 12px 18px;
     border: solid #4CAF50 1px;
     text-decoration: none;
   }
   
-  .btn:hover {
+.bttn:hover {
     background: #4CAF50;
     text-decoration: none;
+    color: #FFFFFF;
   }
+.bttn:focus{
+    background: #4CAF50;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.btn-con{
+    margin-top: 2rem;
+}
 
 /* Features Section */
 #features{

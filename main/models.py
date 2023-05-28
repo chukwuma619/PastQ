@@ -1,12 +1,23 @@
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 # Create your models here.
 
 class Faculty(models.Model):
     faculty_name = models.CharField(max_length=250, unique=True)
+    slug = models.SlugField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug= self.faculty_name.replace(" ", "-") 
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.faculty_name
+
+@receiver(pre_save, sender=Faculty)
+def update_slug(sender, instance, **kwargs):
+    instance.slug = instance.faculty_name.replace(" ", "-") 
     
 class Department(models.Model):
     department_name = models.CharField(max_length=250, unique=True)
