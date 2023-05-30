@@ -1,6 +1,6 @@
-# E-Library
+# PastQ
 
-E-Library is a web application that provides access to a comprehensive collection of past exam questions from various disciplines and academic levels.
+PastQ is a web application that provides access to a comprehensive collection of past exam questions from various disciplines and academic levels.
 
 ## Features
 
