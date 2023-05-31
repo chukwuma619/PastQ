@@ -30,10 +30,7 @@
 }
 
 .f-home-col{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    padding-top: 5rem;
 }
 
 .s-home-col{
@@ -76,6 +73,8 @@
 }
 
 .bttn {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
     border-radius: 12px;
     font-family: var(--primary-font);
     color: #4CAF50;
@@ -97,9 +96,9 @@
     color: #FFFFFF;
 }
 
-/* .btn-con{
+.btn-con{
     margin-top: 2rem;
-} */
+}
 
 /* Features Section */
 #features{
@@ -124,18 +123,13 @@
     padding-bottom: 2.4rem;
 }
 
-.sub-title, .about-title{
+.sub-title{
     font-weight: 700;
     font-family: var(--primary-color);
     color: var(--accent-color);
+    font-size: 1.5rem;
     text-align: center;
 
-}
-
-.about-title{
-    text-align: left;
-    color: #000000;
-    border-bottom: 1.5px solid var(--accent-color);
 }
 .sub-title-text{
     font-weight: 400;
@@ -144,6 +138,9 @@
     color: var(--background-color);
 
 
+}
+.btn-con{
+    padding-left: 16rem;
 }
 
 .fa-2xl{
@@ -171,12 +168,37 @@
     color: #000000;
 }
 
+#about{
+    background-color: var(--primary-color);
+}
+
+.about-heading{
+    font-family: var(--primary-font);
+    font-weight: 700;
+    color: var(--background-color);
+    font-size: 2rem;
+    padding-top: 2rem;
+    padding-left: 0.8rem;
+}
+.about-text{
+    font-weight: 400;
+    font-family: var(--general-font);
+    color: var(--background-color);
+    padding-left: 0.8rem;
+}
+
 #footer{
     padding-top: 1rem;
     background-color: var(--primary-color);
     border-top: 1px solid #FFFFFF;
 }
 
+.about-title{
+    font-weight: 700;
+    font-family: var(--primary-color);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
 
 .footer-text{
     font-weight: 400;
@@ -252,7 +274,7 @@
 
 
 /* Option Page */
-.option-heading, .about-heading{
+.option-heading{
     font-family: var(--primary-fontr);
     font-weight: 700;
     color: var(--primary-color);
@@ -260,7 +282,7 @@
     text-align: left;
     padding-top: 3rem;
     margin-bottom: 0.9rem;
-    border-bottom: 1.5px solid #b9b9b9;
+    border-bottom: 2px solid #000000;
 }
 
 .form-label{
@@ -291,40 +313,8 @@
     text-align: center;
 }
 
-.about-heading{
-    margin-bottom: 2.5rem;
-}
-
-.about-text{
-    font-weight: 400;
-    font-family: var(--general-font);
-    color: #000000;
-    
-     
-}
-.contact-title{
-    font-weight: 400;
-    font-family: var(--general-font);
-    color: var(--background-color);
-    font-size: 1rem;
-}
 /* Mobile Breakpoint */
 @media (min-width: 200px) {
-    .contact-title{
-        text-align: center;
-    }
-
-    .about-title{
-        font-size: 1rem;
-    }
-
-    .about-heading{
-        font-size: 1.7rem;
-    }
-
-    .about-text{
-        font-size: 0.8rem;
-    }
     
     .listing{
         margin: 0.7rem 4rem;
@@ -347,7 +337,6 @@
         font-size: 0.8rem;
         text-align: center;
         padding-top: 2rem;
-        border-bottom: 1px solid #b9b9b9;
     }
     .sub-title{
         font-size: 1.2rem;
@@ -356,7 +345,7 @@
     .img-col{
         display: grid;
     }
-    .test-title-text{
+    .test-title-text, .about-text{
         font-size: 0.8rem;
         text-align: center;
     }
@@ -374,8 +363,13 @@
     .testimonies-heading{
         padding-bottom: 0.2rem;
     }
-    .features-heading, .testimonies-heading{
+    .features-heading, .about-heading, .testimonies-heading{
         font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .about-title{
+        font-size: 1rem;
         text-align: center;
     }
 
@@ -394,15 +388,17 @@
         text-align: center;
 
     }
-    
-    .btn-con{
-        display: flex;
-    }
 
-    .bttn{
-        font-size: 17px;
-    }
+    .btn-lg{
         
+        --bs-btn-padding-x: 0.75rem;
+        --bs-btn-padding-y: 0.375rem;
+        --bs-btn-font-size: 1rem;
+        margin-top: 0.7rem;
+        margin: 0.7rem auto 0;
+        
+        
+    }
     .home-row{
         padding: 2rem 0;
     }
@@ -461,50 +457,24 @@
         margin: 0.7rem;
     }
     .col-bg-image{
-        margin-left: 7rem;
+        margin: 0 auto;
         max-width: 70%;
     }
-    
 
-    .footer-text{
+    .about-heading, .about-title, .footer-text, .about-text{
         text-align: left;
     }
 }
 
 @media (min-width: 769px) {
     .col-bg-image{
-        max-width: 46%;
+        max-width: 55%;
     }
 }
 
 
 
 @media (min-width: 992px){
-    
-    .about-heading{
-        font-size: 2.5rem;
-    }
-
-    .about-title{
-        font-size: 1.5rem;
-    }
-
-    .about-text{
-        font-size: 1rem;
-    }
-    .f-home-col{
-        align-items: flex-start;
-        justify-content: space-around;
-    }
-
-    .btn-con{
-        padding-top: 1rem;
-    }
-
-    .bttn{
-        font-size: 21px;
-    }
-
     #features{
         margin-top: 8.1rem;
         padding: 2rem 0;
@@ -513,7 +483,7 @@
     .features-heading, .testimonies-heading{
         font-size: 2rem
     }
-    .test-title-text{
+    .test-title-text, .about-text{
         font-size: 0.9rem;
     }
 
@@ -543,10 +513,15 @@
     .btn-con{
         display: block;
     }
+    .btn-lg{
+        --bs-btn-padding-y: 0.5rem;
+        --bs-btn-padding-x: 1rem;
+        --bs-btn-font-size: 1.25rem;
+        margin: 0;
+    }
     
     .col-bg-image{
         max-width: 100%;
-        margin-left: 0.3rem
     }
     .col-main-image{
         max-width: 100%;

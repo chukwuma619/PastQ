@@ -52,4 +52,6 @@ def option(request, faculty):
         return render(request, "download.html", context={"file_url": course_instance[0].file})
         
    
-    
+
+def about(request):
+    return render(request, 'about.html')

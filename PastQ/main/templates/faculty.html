@@ -9,7 +9,7 @@
       courses and programs designed to empower students with the knowledge and skills necessary for their academic and
       professional success.</h6>
     <ul class="listings-container">
-
+      {%if faculties%}
       {%for faculty in faculties %}
       <li class="listing">
         <a href="{% url 'faculty' faculty.slug %}" class="listing-link">
@@ -21,6 +21,11 @@
         </a>
       </li>
       {%endfor%}
+      {%else%}
+      <li class="listing" style="padding-top: 2rem; padding-bottom: 1rem;">
+        <p>No Faculties available Yet, check back later</p>
+      </li>
+      {%endif%}
 
     </ul>
   </div>
